@@ -1,0 +1,59 @@
+<div th:fragment="defaultHeader">
+  <header class="header">
+    <div class="container">
+      <div class="header-wrapper">
+        <div class="logo">
+          <img src="/logo.png" alt="" class="logo-img">
+        </div>
+        <nav class="nav-container">
+          <ul class="header-nav">
+            <li class="header-nav__li">
+              <a href="/MacBook/" class="header-nav__link">MacBook</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="/Iphone/" class="header-nav__link">IPhone</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="/Imac/" class="header-nav__link">IMac</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="/Watch/" class="header-nav__link">Watch</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="/Sklad/" class="header-nav__link">Склад</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="/Adress/" class="header-nav__link">Адрес</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="/Passport/" class="header-nav__link">Паспорт</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="/Color/" class="header-nav__link">Цвет</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="/Proizvoditel/" class="header-nav__link">Производитель</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="/Country/" class="header-nav__link">Страна</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-cab">
+          <a href="/admin" class="header-cab__span">
+            Личный кабинет
+          </a>
+        </div>
+        <div class="header-cab">
+          <a href="/login" class="header-cab__span">
+            Войти
+          </a>
+        </div>
+        <form th:action="@{/logout}" method="post" class="header-logout">
+          <input type="submit" value="Выйти" class="page-search__input__logout"/>
+        </form>
+      </div>
+    </div>
+  </header>
+
+</div>

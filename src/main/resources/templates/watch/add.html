@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Watch Add</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="stylesheet" href="/header.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+<div th:insert="/fragment/header::defaultHeader"></div>
+<div class="page">
+    <div class="name">
+        <h1 class="page-title">Добавление Часов</h1>
+    </div>
+    <div class="page-card">
+        <div class="card">
+            <form action="/Watch/add" method="post" th:object="${wat}">
+                <input class="page-search__input" type="text" id="name" name="name" placeholder="Название">
+                <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div><br>
+                <input class="page-search__input" type="text" id="price" name="price" placeholder="Цена">
+                <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></div><br>
+                <select  name="countr" class="select">
+                    <div th:each="element : ${count}">
+                        <option th:text="${element.name}"></option>
+                    </div>
+                </select>
+                <select  name="colorName" class="select">
+                    <div th:each="element : ${colors}">
+                        <option th:text="${element.name}"></option>
+                    </div>
+                </select>
+                <select  name="skladName" class="select">
+                    <div th:each="element : ${sklad}">
+                        <option th:text="${element.name}"></option>
+                    </div>
+                </select>
+                <input class="page-search__input" type="submit" value="Добавить Часы">
+            </form>
+        </div>
+    </div>
+    <button class="button">
+        <a href="/Watch/"  class="button-link__add">Назад</a>
+    </button>
+</div>
+<div th:insert="fragment/footer :: defaultFooter"></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="header.css">
+</head>
+<body>
+<div th:fragment="defaultHeader">
+  <header class="header">
+    <div class="container">
+      <div class="header-wrapper">
+        <div class="logo">
+          <img src="/logo.png" alt="" class="logo-img">
+        </div>
+        <nav class="nav-container">
+          <ul class="header-nav">
+            <li class="header-nav__li">
+              <a href="#" class="header-nav__link">MacBook</a>
+            </li>
+            <li class="header-nav__li">
+              <a href="#" class="header-nav__link">IPhone</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-cab">
+          <a href="/login" class="header-cab__span">
+            Личный кабинет
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+</body>
+</html>

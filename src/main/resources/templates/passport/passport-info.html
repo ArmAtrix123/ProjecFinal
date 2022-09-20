@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Passport Info</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="stylesheet" href="/header.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+<div th:insert="/fragment/header::defaultHeader"></div>
+
+<div class="page">
+    <div class="name">
+        <h1 class="page-title">О Паспорте</h1>
+    </div>
+    <div class="page-card">
+        <div th:each="el : ${passports}" class="card">
+            <h5>Серия</h5>
+            <p th:text="${el.series}"></p>
+            <h5>Номер</h5>
+            <p th:text="${el.number}"></p>
+            <a class="button-link" th:href="'/Passport/passport-del/' + ${el.id}">Удалить</a>
+            <a class="button-link" th:href="'/Passport/passport-edit/' + ${el.id}">Изменить</a>
+        </div>
+    </div>
+    <button class="button">
+        <a href="/Passport/" class="button-link__add">Назад</a>
+    </button>
+</div>
+<div th:insert="fragment/footer :: defaultFooter"></div>
+</body>
+</html>

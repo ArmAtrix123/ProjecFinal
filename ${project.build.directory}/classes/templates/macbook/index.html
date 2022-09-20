@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MacBook</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css"/>
+    <link rel="stylesheet" href="/header.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header-wrapper">
+            <div class="logo">
+                <img src="/logo.png" alt="" class="logo-img">
+            </div>
+            <nav class="nav-container">
+                <ul class="header-nav">
+                    <li class="header-nav__li">
+                        <a href="/MacBook/" class="header-nav__link">MacBook</a>
+                    </li>
+                    <li class="header-nav__li">
+                        <a href="/Iphone/" class="header-nav__link">IPhone</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-cab">
+                <a href="/login" class="header-cab__span">
+                    Личный кабинет
+                </a>
+            </div>
+            <form th:action="@{/logout}" method="post" class="header-logout">
+                <input type="submit" value="Выйти" class="page-search__input__logout"/>
+            </form>
+        </div>
+    </div>
+</header>
+
+<div class="page">
+    <div class="name">
+        <h1 class="page-title">Склад MacBook</h1>
+    </div>
+    <div class="page-search__form">
+        <form  action="/MacBook/search" class="page-search__item">
+            <input class="page-search__input" name="title" id="title" placeholder="Точный поиск">
+            <input type="submit" value="Поиск" class="button">
+        </form>
+        <form  action="/MacBook/searchContains" class="page-search__item">
+            <input class="page-search__input" name="title" id="title1" placeholder="Неточный поиск">
+            <input type="submit" value="Поиск" class="button">
+        </form>
+    </div>
+    <div class="page-card">
+        <div th:each="el : ${macbooks}" class="card">
+            <h5>Название</h5>
+            <p th:text="${el.title}"></p>
+            <h5>Описание</h5>
+            <p th:text="${el.text}"></p>
+            <h5>Цвет</h5>
+            <p th:text="${el.color}"></p>
+            <h5>Цена</h5>
+            <p th:text="${el.price}"></p>
+            <h5>Размер</h5>
+            <p th:text="${el.size}"></p>
+            <a class="button-link" th:href="'/MacBook/' + ${el.id}">Подробнее о Макбуке</a>
+        </div>
+    </div>
+    <button class="button">
+        <a class="button-link__add" href="/MacBook/addView">Добавить</a>
+    </button>
+</div>
+<div th:insert="fragment/footer :: defaultFooter"></div>
+</body>
+</html>

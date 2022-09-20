@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iphone Edit</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/header.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header-wrapper">
+            <div class="logo">
+                <img src="/logo.png" alt="" class="logo-img">
+            </div>
+            <nav class="nav-container">
+                <ul class="header-nav">
+                    <li class="header-nav__li">
+                        <a href="/MacBook/" class="header-nav__link">MacBook</a>
+                    </li>
+                    <li class="header-nav__li">
+                        <a href="/Iphone/" class="header-nav__link">IPhone</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-cab">
+                <a href="/login" class="header-cab__span">
+                    Личный кабинет
+                </a>
+            </div>
+            <form th:action="@{/logout}" method="post" class="header-logout">
+                <input type="submit" value="Выйти" class="page-search__input__logout"/>
+            </form>
+        </div>
+    </div>
+</header>
+<div class="page">
+    <div class="name">
+        <h1 class="page-title">Изменения IPhone</h1>
+    </div>
+    <div class="page-card">
+        <div th:each="el : ${iphones}" class="card">
+            <form method="post" th:action="'/Iphone/iphone-edit/' + ${el.id}">
+                <input th:value="${el.title}" class="page-search__input" type="text" id="title" name="title"  placeholder="Название">
+                <input th:value="${el.text}" class="page-search__input" type="text" id="text" name="text" placeholder="Описание">
+                <input th:value="${el.price}" class="page-search__input" type="nubmer" id="price" name="price" placeholder="Цена">
+                <input th:value="${el.display}" class="page-search__input" type="number" id="display" name="display" placeholder="Дисплей">
+                <input th:value="${el.number}" class="page-search__input" type="number" id="number" name="number" placeholder="Серия">
+                <input class="page-search__input" type="submit" value="Изменить">
+            </form>
+        </div>
+    </div>
+    <button class="button">
+        <a href="/Iphone/"  class="button-link__add">Назад</a>
+    </button>
+</div>
+<div th:insert="fragment/footer :: defaultFooter"></div>
+</body>
+</html>

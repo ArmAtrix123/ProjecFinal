@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body{
+
+}
+.header{
+    padding: 15px;
+    background-color: #292929;
+}
+.container{
+    max-width: 1700px;
+    margin: 0 auto;
+}
+.header-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo-img{
+    width: 150px;
+}
+.nav-container{
+    width: 800px;
+}
+.header-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.header-nav__link{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+.header-cab__span{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
